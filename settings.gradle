@@ -1,0 +1,2 @@
+rootProject.name = "DiceOut2"
+include ':app'
