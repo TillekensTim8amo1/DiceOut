@@ -17,8 +17,11 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    //field to hold the score
+    int score;
 
     private AppBarConfiguration appBarConfiguration;
 
@@ -41,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        //set initial score
+        score = 0;
+
+        //create greeting
+        Toast.makeText(getApplicationContext(), "Welcome to Diceout!",Toast.LENGTH_SHORT).show();
     }
 
     @Override
