@@ -18,6 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
     //arraylist to hold all 3 dice values
     ArrayList<Integer> dice;
+
+    //h
+    ArrayList<ImageView> diceImageViews;
 
 
 
@@ -88,6 +92,15 @@ public class MainActivity extends AppCompatActivity {
 
         //create arraylist container for the dice values
         dice = new ArrayList<Integer>();
+
+        ImageView die1Image = (ImageView) findViewById(R.id.die1Image);
+        ImageView die2Image = (ImageView) findViewById(R.id.die2Image);
+        ImageView die3Image = (ImageView) findViewById(R.id.die3Image);
+
+        diceImageViews = new ArrayList<ImageView>();
+        diceImageViews.add(die1Image);
+        diceImageViews.add(die2Image);
+        diceImageViews.add(die3Image);
 
 
         rollResult.setText("Clicked");
