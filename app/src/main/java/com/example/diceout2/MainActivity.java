@@ -1,5 +1,6 @@
 package com.example.diceout2;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -22,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -106,15 +109,27 @@ public class MainActivity extends AppCompatActivity {
         rollResult.setText("Clicked");
 
         //roll dice
-        die1 = rand.nextInt(6)+1;
-        die2 = rand.nextInt(6)+1;
-        die3 = rand.nextInt(6)+1;
+        die1 = rand.nextInt(6) + 1;
+        die2 = rand.nextInt(6) + 1;
+        die3 = rand.nextInt(6) + 1;
 
         //set dice values into a arraylist
         dice.clear();
         dice.add(die1);
         dice.add(die2);
         dice.add(die3);
+
+        for (int dieOfSet = 0; dieOfSet < 3; dieOfSet++) {
+            String imageName = "die_" + dice.get(dieOfSet) + ".png";
+
+            try {
+                InputStream stream = getAssets().open(imageName);
+                Drawable d = Drawable.createFromStream(stream,null);
+                diceImageViews.get(dieOfSet).setImageDrawable(d);
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
         //build massage with the result
         String msg = "you rolled a " + die1 + ", a " + die2 + ", and a " + die3;
