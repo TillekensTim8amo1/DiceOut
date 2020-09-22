@@ -137,10 +137,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
         //build massage with the result
-        String msg = "you rolled a " + die1 + ", a " + die2 + ", and a " + die3;
+        String msg;
+
+        if (die1 == die2 && die1 == die3) {
+            //triples
+            int scoreDelta = die1 * 100;
+            msg = " You rolled a triple " + die1 + "! You score " + scoreDelta + " points!";
+            score += scoreDelta;
+        } else if (die1 == die2 || die1 == die3 || die2 == die3) {
+            msg = "You rolled doubles for 50 pints!";
+            score += 50;
+        } else {
+            msg= "you didn't score this roll. try again!";
+        }
+
+
 
         //update the app to display the result massage
         rollResult.setText(msg);
+
+        scoreText.setText("Score: " + score);
 
 
     }
