@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
     int die2;
     int die3;
 
+    //field to hold the score text
+    TextView scoreText;
+
     //arraylist to hold all 3 dice values
     ArrayList<Integer> dice;
 
@@ -89,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
     public void rollDice(View v) {
         rollResult = (TextView) findViewById(R.id.rollResult);
         rollButton = (Button) findViewById(R.id.rollButton);
+
+        scoreText = (TextView) findViewById(R.id.scoreText);
 
         //initialize the random numer generator
         rand = new Random();
